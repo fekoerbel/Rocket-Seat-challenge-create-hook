@@ -33,12 +33,13 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const addProduct = async (productId: number) => {
     try {
-      // TODO
+      const newProduct = await api.get('/products/' + productId) 
+      setCart([...cart, newProduct.data])
     } catch {
       // TODO
     }
   };
-
+  
   const removeProduct = (productId: number) => {
     try {
       // TODO
